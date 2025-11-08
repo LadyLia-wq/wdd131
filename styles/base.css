@@ -7,12 +7,12 @@
   --text-color: #222222;
   --light-bg: #f8f9fa;
   --border-color: #cccccc;
-  --nav-bg: #333333;
   --white: #ffffff;
+  --nav-bg: #333333;
 }
 
 /* ----------------------------
-   GENERAL STYLES
+   GLOBAL STYLES
 -----------------------------*/
 body {
   font-family: 'Poppins', sans-serif;
@@ -34,7 +34,7 @@ header {
 }
 
 #course-title {
-  display: block;
+  display: block; /* centers easily */
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -96,7 +96,7 @@ main h1 {
    CARD SECTIONS
 -----------------------------*/
 .card {
-  background-color: var(--white);
+  background: var(--white);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
