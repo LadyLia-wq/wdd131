@@ -1,0 +1,71 @@
+@media (min-width: 900px){
+  /* header sizes */
+  .site-title{font-size:3rem;padding:1rem 0}
+  .hamburger{display:none}
+
+  /* nav becomes visible inline */
+  .main-nav{
+    display:flex!important;
+    gap:1rem;
+    position:static;
+    background:none;
+  }
+  .main-nav a{color:#fff;text-decoration:none;padding:0.25rem 0.5rem;font-weight:600}
+
+  main{
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap:var(--gap);
+    align-items:start;
+    padding:2.25rem;
+  }
+
+  /* Hero becomes a large background spanning center column */
+  .hero{
+    grid-column:1 / -1;
+    height:1000px;
+    position:relative;
+    margin-bottom:0.25rem;
+  }
+  .hero img{height:1000px;object-fit:cover}
+
+  /* Data card sits left column as a floating box */
+  .data-card{
+    grid-column:1 / 2;
+    position: relative;
+    margin-top: 10px; 
+    max-width:320px;
+    text-align:left;
+    padding:1.6rem;
+    background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));
+  }
+
+  /* center column content empty; large hero background shows behind */
+  .weather-card{
+    grid-column:3 / 4;
+    margin-top: -100px;
+    max-width:320px;
+    padding:1.4rem;
+    position:relative;
+    text-align:left;
+  }
+
+  .weather-card h2{
+    /* pseudo-element used here to add emoticon after heading */
+    position:relative;
+    font-size:1.6rem;
+  }
+  .weather-card h2::after{
+    content: " ⛅";
+    display:inline-block;
+    margin-left:0.45rem;
+    font-size:1.2rem;
+  }
+
+  /* weather list style */
+  .weather-list{padding-left:0.2rem}
+  .weather-list li{padding:0.5rem 0}
+
+  /* footer centered */
+  .site-footer{padding:2rem 1rem}
+}

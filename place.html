@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accra — Place Page</title>
+
+  <!-- Google Fonts preconnect (required) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Mobile-first CSS -->
+  <link rel="stylesheet" href="styles/place.css">
+
+  <!-- Larger screen overrides -->
+  <link rel="stylesheet" href="styles/place-large.css">
+
+  <!-- JS -->
+  <script src="scripts/place.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Accra</h1>
+
+    <button id="menuButton" class="hamburger" aria-expanded="false" aria-controls="mainNav">☰</button>
+
+    <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+      <a href="#">Home</a>
+      <a href="#">Culture</a>
+      <a href="#">Food</a>
+      <a href="#">Visit</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO - uses picture / srcset with WebP -->
+    <section class="hero">
+      <picture>
+        <!-- small (mobile) -->
+        <source srcset="https://picsum.photos/600/900.webp?seed=accra-small" media="(max-width:599px)" type="image/webp">
+        <!-- medium -->
+        <source srcset="https://picsum.photos/1200/700.webp?seed=accra-medium" media="(min-width:600px) and (max-width:1199px)" type="image/webp">
+        <!-- large -->
+        <source srcset="https://picsum.photos/1600/900.webp?seed=accra-large" media="(min-width:1200px)" type="image/webp">
+        <!-- fallback img -->
+        <img src="https://picsum.photos/1200/700.webp?seed=accra-medium" alt="Colourful street scene in Accra" width="1200" height="700">
+      </picture>
+    </section>
+
+    <!-- Data card -->
+    <section class="data-card" aria-labelledby="dataHeading">
+      <h2 id="dataHeading">Data</h2>
+      <dl class="data-list">
+        <div class="data-row"><dt>Area:</dt><dd>225 km²</dd></div>
+        <div class="data-row"><dt>Population:</dt><dd>2,291,352</dd></div>
+        <div class="data-row"><dt>Capital:</dt><dd>Accra</dd></div>
+        <div class="data-row"><dt>Languages:</dt><dd>Twi, English</dd></div>
+        <div class="data-row"><dt>Currency:</dt><dd>Ghanaian Cedi (GHS)</dd></div>
+        <div class="data-row"><dt>Time Zone:</dt><dd>UTC+0</dd></div>
+        <div class="data-row"><dt>Calling Code:</dt><dd>+233</dd></div>
+        <div class="data-row"><dt>Internet TLD:</dt><dd>.gh</dd></div>
+      </dl>
+    </section>
+
+    <!-- Weather card -->
+    <section class="weather-card" aria-labelledby="weatherHeading">
+      <h2 id="weatherHeading">Weather</h2>
+
+      <!-- Mobile SVG icon -->
+      <div class="weather-visual">
+        <!-- Inline tiny SVG used on mobile -->
+        <svg class="weather-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="84" height="84" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 36h24a8 8 0 0 0 0-16 12 12 0 0 0-23-2" fill="#ffd166" stroke="#e76f51"></path>
+            <path d="M18 46h28" stroke="#333"></path>
+            <path d="M30 50c0 2-4 4-4 4" stroke="#2a9d8f"></path>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="weather-list">
+        <li><strong>Temperature:</strong> <span id="tempValue">28</span> °C</li>
+        <li><strong>Conditions:</strong> Humid</li>
+        <li><strong>Wind:</strong> <span id="windValue">12</span> km/h</li>
+        <li><strong>Wind Chill:</strong> <span id="windchill">N/A</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> 🌺 Your Name — Accra</p>
+    <p>Last Modification: <span id="lastModified"></span></p>
+  </footer>
+</body>
+</html>

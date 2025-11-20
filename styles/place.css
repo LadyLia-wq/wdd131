@@ -1,0 +1,159 @@
+:root{
+  --accent:#b71c1c;   
+  --accent-dark:#0b6b3a; 
+  --text:#222;
+  --muted:#666;
+  --card-bg:rgba(255,255,255,0.95);
+  --max-width:1100px;
+  --gap:1.25rem;
+  --radius:10px;
+  --shadow: 0 10px 20px rgba(0,0,0,0.12);
+  --site-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--site-font);
+  color:var(--text);
+  background: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+.site-header{
+  background:var(--accent);
+  color: #fff;
+  padding:0.9rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+
+.site-title{
+  margin:0;
+  font-size:1.6rem;
+  font-weight:700;
+  text-align:center;
+  width:100%;
+}
+
+/* hamburger */
+.hamburger{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:1.4rem;
+  line-height:1;
+}
+
+/* nav hidden on mobile */
+.main-nav{
+  display:none;
+  gap:1rem;
+}
+
+/* HERO */
+.hero{
+  margin:0;
+  width:100%;
+  overflow:hidden;
+}
+
+.hero img{
+  width:100%;
+  height:60vh;
+  max-height:720px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Cards */
+main{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1.25rem;
+}
+
+/* Data card */
+.data-card{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.5rem;
+  text-align:center;
+}
+
+.data-card h2{
+  margin-top:0;
+  margin-bottom:0.8rem;
+  font-size:1.6rem;
+}
+.data-list{margin:0;padding:0;list-style:none;display:block}
+.data-row{display:flex;justify-content:center;gap:0.75rem;padding:0.35rem 0}
+.data-row dt{font-weight:700;margin-right:0.5rem}
+.data-row dd{margin:0;color:var(--muted)}
+
+/* Weather card */
+.weather-card{
+  margin-top:1.5rem;
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1.2rem;
+  text-align:center;
+}
+
+.weather-card h2{
+  margin:0 0 0.8rem 0;
+  font-size:1.5rem;
+}
+
+/* weather visual */
+.weather-svg{
+  display:block;
+  margin:0.35rem auto 0.8rem auto;
+}
+
+/* list style in weather */
+.weather-list{list-style:none;padding:0;margin:0}
+.weather-list li{padding:0.35rem 0}
+
+/* footer */
+.site-footer{
+  background:var(--accent);
+  color:#fff;
+  text-align:center;
+  padding:1rem 0.5rem;
+  margin-top:2rem;
+  font-size:0.95rem;
+}
+
+/* utility: visible nav when open */
+.main-nav.open{
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  background:var(--accent);
+  padding:0.75rem 1rem 1.25rem 1rem;
+  z-index:50;
+}
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:0.45rem 0;
+}
+
+/* small screens spacing fix */
+@media (max-width:420px){
+  .data-row{flex-direction:column;align-items:center}
+  .data-row dt{margin:0}
+}
