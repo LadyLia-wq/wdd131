@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Temple Album</title>
     <meta name="description" content="Hey... This is a temples display gallery. Welcome!">
     <meta name="author" content="Halia Yayra Khayat">
@@ -34,12 +34,13 @@
 
         <!-- use buttons with data-filter so JS can detect them -->
        <nav id="main-nav" aria-label="Temple filters">
-            <a href="#" class="nav-link nav-btn" data-filter="all" aria-pressed="true">Home</a>
-            <a href="#" class="nav-link nav-btn" data-filter="old" aria-pressed="false">Old</a>
-            <a href="#" class="nav-link nav-btn" data-filter="new" aria-pressed="false">New</a>
-            <a href="#" class="nav-link nav-btn" data-filter="large" aria-pressed="false">Large</a>
-            <a href="#" class="nav-link nav-btn" data-filter="small" aria-pressed="false">Small</a>
+            <a href="#" class="nav-link nav-btn" role="button" data-filter="all"  aria-pressed="true">Home</a>
+            <a href="#" class="nav-link nav-btn" role="button" data-filter="old"  aria-pressed="false">Old</a>
+            <a href="#" class="nav-link nav-btn" role="button" data-filter="new"  aria-pressed="false">New</a>
+            <a href="#" class="nav-link nav-btn" role="button" data-filter="large" aria-pressed="false">Large</a>
+            <a href="#" class="nav-link nav-btn" role="button" data-filter="small" aria-pressed="false">Small</a>
         </nav>
+
 
     </header>
 
@@ -53,7 +54,9 @@
 
 
         <!-- This is the container the script will fill dynamically -->
-        <section id="temple-list" class="gallery" aria-live="polite"></section>
+        <section id="temple-list" class="gallery" aria-live="polite">
+            <h2 class="hidden-heading">Temple Gallery</h2>
+        </section>
     </main>
 
     <footer>
