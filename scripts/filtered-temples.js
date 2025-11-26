@@ -1,16 +1,21 @@
 // Footer Year + Last Modified (IDs match HTML)
-document.querySelector("#year").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent = document.lastModified || new Date(document.lastModified).toString();
+const yearEl = document.querySelector("#year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+const lastModEl = document.querySelector("#lastModified");
+if (lastModEl) lastModEl.textContent = document.lastModified || new Date().toString();
 
 // Hamburger Menu Toggle (uses main-nav)
 const menuButton = document.querySelector("#menuButton");
 const navMenu = document.querySelector("#main-nav");
-menuButton.addEventListener("click", () => {
-  const expanded = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!expanded));
-  navMenu.style.display = expanded ? "none" : "flex";
-  menuButton.textContent = expanded ? "☰" : "✖";
-});
+if (menuButton && navMenu) {
+  menuButton.addEventListener("click", () => {
+    const expanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!expanded));
+    navMenu.style.display = expanded ? "none" : "flex";
+    menuButton.textContent = expanded ? "☰" : "✖";
+  });
+}
 
 // Temple data
 const temples = [
@@ -27,20 +32,20 @@ const temples = [
 ];
 
 // parse year from dedicated string
-function getYear(dedicatedStr){
-  if(!dedicatedStr) return NaN;
-  const parts = dedicatedStr.split(',').map(s=>s.trim());
-  const num = parseInt(parts[0],10);
-  if(!isNaN(num)) return num;
-  for(const p of parts){
-    const y = parseInt(p,10);
-    if(!isNaN(y)) return y;
+function getYear(dedicatedStr) {
+  if (!dedicatedStr) return NaN;
+  const parts = dedicatedStr.split(',').map(s => s.trim());
+  const num = parseInt(parts[0], 10);
+  if (!isNaN(num)) return num;
+  for (const p of parts) {
+    const y = parseInt(p, 10);
+    if (!isNaN(y)) return y;
   }
   return NaN;
 }
 
 // create a card element for a temple
-function createTempleCard(t){
+function createTempleCard(t) {
   const figure = document.createElement('figure');
   figure.classList.add('temple-card');
 
@@ -66,29 +71,32 @@ function createTempleCard(t){
   return figure;
 }
 
-// render array of temples into #temple-list
 const listEl = document.getElementById('temple-list');
 const countEl = document.getElementById('count');
-function render(templesToShow){
-  if(!listEl) return console.error('No #temple-list element found');
+
+function render(templesToShow) {
+  if (!listEl) return console.error('No #temple-list element found');
   listEl.innerHTML = '';
-  if(!templesToShow || templesToShow.length === 0){
-    listEl.innerHTML = '<p style="grid-column:1/-1;color:#666">No temples match that filter.</p>';
-    countEl.textContent = '0';
+  if (!templesToShow || templesToShow.length === 0) {
+    const p = document.createElement('p');
+    p.className = 'no-results';
+    p.textContent = 'No temples match that filter.';
+    listEl.appendChild(p);
+    if (countEl) countEl.textContent = '0';
     return;
   }
   const frag = document.createDocumentFragment();
   templesToShow.forEach(t => frag.appendChild(createTempleCard(t)));
   listEl.appendChild(frag);
-  countEl.textContent = templesToShow.length;
+  if (countEl) countEl.textContent = templesToShow.length;
 }
 
 // initial render
 render(temples);
 
 // filtering logic
-function filterByKey(key){
-  switch(key){
+function filterByKey(key) {
+  switch (key) {
     case 'all': return temples;
     case 'old': return temples.filter(t => getYear(t.dedicated) < 1900);
     case 'new': return temples.filter(t => getYear(t.dedicated) > 2000);
@@ -104,7 +112,7 @@ if (nav) {
   nav.addEventListener('click', (e) => {
     const link = e.target.closest('a[data-filter]');
     if (!link) return;
-    e.preventDefault(); // prevent the '#' from jumping
+    e.preventDefault(); 
 
     // update pressed state (use aria-pressed on links)
     nav.querySelectorAll('a[data-filter]').forEach(a => a.setAttribute('aria-pressed', 'false'));
@@ -113,19 +121,20 @@ if (nav) {
     // filter and render
     const key = link.dataset.filter;
     const base = filterByKey(key);
-    const q = document.getElementById('search') ? document.getElementById('search').value.trim().toLowerCase() : '';
+    const qEl = document.getElementById('search');
+    const q = qEl ? qEl.value.trim().toLowerCase() : '';
     const final = base.filter(t => (!q) || (t.templeName.toLowerCase().includes(q) || t.location.toLowerCase().includes(q)));
     render(final);
   });
 }
 
-
 // live search
 const search = document.getElementById('search');
-if(search){
-  search.addEventListener('input', ()=> {
-    const active = nav.querySelector('button[aria-pressed="true"]').dataset.filter;
-    const results = filterByKey(active);
+if (search && nav) {
+  search.addEventListener('input', () => {
+    const activeLink = nav.querySelector('a[aria-pressed="true"]');
+    const activeKey = activeLink ? activeLink.dataset.filter : 'all';
+    const results = filterByKey(activeKey);
     const q = search.value.trim().toLowerCase();
     const final = results.filter(t => (!q) || (t.templeName.toLowerCase().includes(q) || t.location.toLowerCase().includes(q)));
     render(final);
