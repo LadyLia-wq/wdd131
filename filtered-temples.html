@@ -33,22 +33,24 @@
         <button id="menuButton" aria-controls="main-nav" aria-expanded="false">☰</button>
 
         <!-- use buttons with data-filter so JS can detect them -->
-        <nav id="main-nav" aria-label="Temple filters">
-            <button class="nav-btn" data-filter="all" aria-pressed="true">Home</button>
-            <button class="nav-btn" data-filter="old" aria-pressed="false">Old</button>
-            <button class="nav-btn" data-filter="new" aria-pressed="false">New</button>
-            <button class="nav-btn" data-filter="large" aria-pressed="false">Large</button>
-            <button class="nav-btn" data-filter="small" aria-pressed="false">Small</button>
+       <nav id="main-nav" aria-label="Temple filters">
+            <a href="#" class="nav-link nav-btn" data-filter="all" aria-pressed="true">Home</a>
+            <a href="#" class="nav-link nav-btn" data-filter="old" aria-pressed="false">Old</a>
+            <a href="#" class="nav-link nav-btn" data-filter="new" aria-pressed="false">New</a>
+            <a href="#" class="nav-link nav-btn" data-filter="large" aria-pressed="false">Large</a>
+            <a href="#" class="nav-link nav-btn" data-filter="small" aria-pressed="false">Small</a>
         </nav>
+
     </header>
 
     <main>
         <h2 id="page-title">Home</h2>
 
-        <div class="controls" style="max-width:900px;margin:0.5rem auto 1rem;display:flex;gap:.5rem;align-items:center;">
-            <input id="search" class="search" type="search" placeholder="Search by name or location..." aria-label="Search temples" />
-            <small style="color:#666">Showing <span id="count">0</span> temples</small>
+        <div class="controls">
+            <input id="search" class="search" type="search" placeholder="Search by name or location..." aria-label="Search temples">
+            <small class="results-count">Showing <span id="count">0</span> temples</small>
         </div>
+
 
         <!-- This is the container the script will fill dynamically -->
         <section id="temple-list" class="gallery" aria-live="polite"></section>

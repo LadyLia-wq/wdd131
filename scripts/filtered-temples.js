@@ -42,29 +42,27 @@ function getYear(dedicatedStr){
 // create a card element for a temple
 function createTempleCard(t){
   const figure = document.createElement('figure');
-  figure.style.background = "#fff";
-  figure.style.padding = "0.5rem";
-  figure.style.borderRadius = "8px";
-  figure.style.boxShadow = "0 4px 14px rgba(0,0,0,0.06)";
+  figure.classList.add('temple-card');
+
   const img = document.createElement('img');
   img.src = t.imageUrl;
   img.alt = t.templeName + ' exterior';
   img.loading = 'lazy';
-  img.style.width = '100%';
-  img.style.height = '200px';
-  img.style.objectFit = 'cover';
-  img.style.borderRadius = '6px';
+  img.classList.add('temple-image');
   figure.appendChild(img);
 
   const figcap = document.createElement('figcaption');
-  figcap.innerHTML = `<strong>${t.templeName}</strong><br/><span style="color:#666">${t.location}</span><br/>Dedicated: ${t.dedicated}<br/>Area: ${t.area.toLocaleString()} sq ft`;
-  figcap.style.textAlign = "left";
-  figcap.style.marginTop = "0.5rem";
+  figcap.classList.add('temple-caption');
+  figcap.innerHTML = `
+      <strong>${t.templeName}</strong><br/>
+      <span>${t.location}</span><br/>
+      Dedicated: ${t.dedicated}<br/>
+      Area: ${t.area.toLocaleString()} sq ft`;
   figure.appendChild(figcap);
 
-  // data attributes for filtering
   figure.dataset.year = getYear(t.dedicated);
   figure.dataset.area = t.area;
+
   return figure;
 }
 
@@ -100,21 +98,27 @@ function filterByKey(key){
   }
 }
 
-// nav button behavior (works with #main-nav buttons)
+// nav link behavior (works with <a data-filter> links)
 const nav = document.getElementById('main-nav');
-if(nav){
+if (nav) {
   nav.addEventListener('click', (e) => {
-    const btn = e.target.closest('button[data-filter]');
-    if(!btn) return;
-    nav.querySelectorAll('button[data-filter]').forEach(b => b.setAttribute('aria-pressed','false'));
-    btn.setAttribute('aria-pressed','true');
-    const key = btn.dataset.filter;
+    const link = e.target.closest('a[data-filter]');
+    if (!link) return;
+    e.preventDefault(); // prevent the '#' from jumping
+
+    // update pressed state (use aria-pressed on links)
+    nav.querySelectorAll('a[data-filter]').forEach(a => a.setAttribute('aria-pressed', 'false'));
+    link.setAttribute('aria-pressed', 'true');
+
+    // filter and render
+    const key = link.dataset.filter;
     const base = filterByKey(key);
-    const q = document.getElementById('search').value.trim().toLowerCase();
+    const q = document.getElementById('search') ? document.getElementById('search').value.trim().toLowerCase() : '';
     const final = base.filter(t => (!q) || (t.templeName.toLowerCase().includes(q) || t.location.toLowerCase().includes(q)));
     render(final);
   });
 }
+
 
 // live search
 const search = document.getElementById('search');
@@ -128,11 +132,14 @@ if(search){
   });
 }
 
-// keyboard accessibility for nav buttons
-if(nav){
-  nav.querySelectorAll('button[data-filter]').forEach(b=>{
-    b.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); }
+// keyboard accessibility for nav links
+if (nav) {
+  nav.querySelectorAll('a[data-filter]').forEach(link => {
+    link.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        link.click();
+      }
     });
   });
 }
