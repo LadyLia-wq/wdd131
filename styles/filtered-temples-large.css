@@ -1,0 +1,23 @@
+@media (min-width: 700px) {
+
+    #menuButton {
+        display: none;
+    }
+
+    nav {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1.5rem;
+        background: none;
+    }
+
+    nav a {
+        color: white;
+        font-size: 1.1rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+

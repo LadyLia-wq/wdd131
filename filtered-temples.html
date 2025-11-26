@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temple Album</title>
+    <meta name="description" content="Hey... This is a temples display gallery. Welcome!">
+    <meta name="author" content="Halia Yayra Khayat">
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS (mobile first) -->
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+
+    <!-- Large screen CSS -->
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/filtered-temples.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Temple Album</h1>
+
+        <button id="menuButton" aria-controls="main-nav" aria-expanded="false">☰</button>
+
+        <!-- use buttons with data-filter so JS can detect them -->
+        <nav id="main-nav" aria-label="Temple filters">
+            <button class="nav-btn" data-filter="all" aria-pressed="true">Home</button>
+            <button class="nav-btn" data-filter="old" aria-pressed="false">Old</button>
+            <button class="nav-btn" data-filter="new" aria-pressed="false">New</button>
+            <button class="nav-btn" data-filter="large" aria-pressed="false">Large</button>
+            <button class="nav-btn" data-filter="small" aria-pressed="false">Small</button>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="page-title">Home</h2>
+
+        <div class="controls" style="max-width:900px;margin:0.5rem auto 1rem;display:flex;gap:.5rem;align-items:center;">
+            <input id="search" class="search" type="search" placeholder="Search by name or location..." aria-label="Search temples" />
+            <small style="color:#666">Showing <span id="count">0</span> temples</small>
+        </div>
+
+        <!-- This is the container the script will fill dynamically -->
+        <section id="temple-list" class="gallery" aria-live="polite"></section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> 🌸 Halia Khayat – Ghana</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+
+</body>
+</html>
