@@ -1,22 +1,26 @@
 :root{
-  --bg:#150a61;
-  --accent:#d0e9f4;
-  --card:#e6dee4;
-  --muted:#0f0fec;
-  --text:#1f035d;
-  --button-bg:#eee;
+  --bg:#4a40db;
+  --accent:#adebf0;     
+  --panel:#d7f5f8;      
+  --muted:#6c6cdf;
+  --text:#111;
+  --button-bg:#efefef;
+  --focus:#2b6b9b;
+  --radius:8px;
 }
 
+/* Reset / base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color:var(--text);
-  background:linear-gradient(#fff,#fff);
+  background:linear-gradient(#ffffff,#ffffff);
   display:flex;
   flex-direction:column;
   min-height:100vh;
+  -webkit-font-smoothing:antialiased;
 }
 
 /* Header */
@@ -36,9 +40,9 @@ body{
   padding:20px;
 }
 .card{
-  background:var(--accent);
-  padding:18px;
-  border-radius:8px;
+  background:var(--panel);
+  padding:20px 20px 28px 20px;
+  border-radius:var(--radius);
   width:100%;
   max-width:720px;
   box-shadow:0 2px 6px rgba(0,0,0,0.08);
@@ -50,10 +54,11 @@ body{
   font-weight:700;
   margin:14px 0 8px;
   font-size:1rem;
+  color: #2a2030;
 }
 .muted{font-weight:400;color:var(--muted);font-style:italic;font-size:0.95rem}
 
-/* select, inputs, textarea */
+/* Form controls */
 select, input[type="text"], input[type="date"], textarea{
   width:100%;
   padding:14px;
@@ -61,34 +66,129 @@ select, input[type="text"], input[type="date"], textarea{
   border-radius:4px;
   font-size:1rem;
   background:white;
+  outline:none;
+}
+select:focus, input[type="text"]:focus, input[type="date"]:focus, textarea:focus{
+  box-shadow:0 0 0 3px rgba(43,106,155,0.12);
+  border-color:var(--focus);
 }
 textarea{resize:vertical}
 
-/* rating row */
+/* ---------- RATING (radio inputs) ---------- */
 .rating-row{
   display:flex;
   gap:18px;
-  align-items:center;
+  align-items:flex-start;
   margin-top:6px;
 }
-.rating{
+
+/* Hide the native radio inputs visually but keep them accessible */
+.rating-row input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The label will display the star(s) and the circular selector below */
+.rating-row label {
   display:flex;
   flex-direction:column;
   align-items:center;
-  font-size:1.1rem;
+  cursor:pointer;
+  font-size:1.15rem;
+  line-height:1;
+  user-select:none;
+  min-width:72px;
 }
-.rating input{display:block; margin-bottom:6px}
 
-/* checkboxes */
+/* small star text sits above the selector */
+.rating-row label .star-text{
+  display:block;
+  font-size:1.05rem;
+  color:#1f1620;
+}
+
+/* the circle under each star (looks like the example with a white center and border) */
+.rating-row label::after{
+  content: "";
+  display:block;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:3px solid rgba(0,0,0,0.26);
+  margin-top:10px;
+  background:white;
+  box-shadow:0 1px 0 rgba(255,255,255,0.8) inset;
+  transition: all 160ms ease;
+}
+
+/* When the corresponding input is checked, change the circle fill + border */
+.rating-row input[type="radio"]:checked + label::after{
+  background:var(--bg);
+  border-color:var(--bg);
+  box-shadow:none;
+}
+
+/* Hover/focus styles for label when not selected */
+.rating-row label:hover::after,
+.rating-row label:focus::after{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Keep keyboard focus visible on the associated label when radio has focus */
+.rating-row input[type="radio"]:focus + label{
+  outline: 4px solid rgba(43,106,155,0.14);
+  border-radius:6px;
+}
+
+/* ---------- CHECKBOXES (keep previous visual layout) ---------- */
+/* The HTML uses input then label repeatedly. Using grid we place pairs as columns:
+   input -> column 1, label -> column 2; next input -> new row col1, etc. */
 .checkbox-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
+  grid-template-columns: 36px 1fr; /* input column + label column */
+  gap:10px 18px;
   margin-top:6px;
+  align-items:center;
 }
-.checkbox-grid label{display:flex;align-items:center;gap:8px;font-weight:600}
 
-/* submit */
+/* Larger screens: show two pairs per row (input,label,input,label) */
+@media (min-width:768px){
+  .checkbox-grid{
+    /* create 4 columns: input1 label1 | input2 label2 -> forms two pairs per row */
+    grid-template-columns: 36px 1fr 36px 1fr;
+  }
+}
+
+/* native checkbox size and appearance */
+.checkbox-grid input[type="checkbox"]{
+  width:28px;
+  height:28px;
+  margin:0;
+  cursor:pointer;
+  accent-color: var(--bg); /* modern browsers will color the check mark */
+}
+
+/* the label sits in the second column (works because label follows each input) */
+.checkbox-grid label{
+  display:block;
+  font-weight:600;
+  cursor:pointer;
+  padding-left:6px;
+  color:#221825;
+}
+
+/* Make sure the label aligns nicely if it's long */
+.checkbox-grid label { line-height:1.2; }
+
+/* ---------- Submit button ---------- */
 .submit-btn{
   display:block;
   width:100%;
@@ -101,6 +201,7 @@ textarea{resize:vertical}
   background:var(--button-bg);
   cursor:pointer;
 }
+.submit-btn:active{transform:translateY(1px)}
 
 /* footer */
 .site-footer{
@@ -115,8 +216,7 @@ textarea{resize:vertical}
 .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .visually-hidden{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 
-/* Responsive */
+/* Responsive tweaks */
 @media(min-width:768px){
-  .checkbox-grid{grid-template-columns:repeat(2,1fr)}
   .rating-row{gap:28px}
 }

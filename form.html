@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A product review form created by Halia Khayat">
+  <meta name="description" content="A responsive product review form created by Halia Khayat">
   <meta name="author" content="Halia Yayra Khayat">
   <title>Product Review Form</title>
   <link rel="stylesheet" href="styles/form.css">
-  <script src="scripts/form.js"></script>
+  <script src="scripts/form.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,7 +27,7 @@
         </select>
 
         <!-- Overall Rating -->
-        <label class="label">Overall Rating</label>
+        <!-- <label class="label">Overall Rating</label>
         <div class="rating-row" role="radiogroup" aria-label="Overall rating">
           <label class="rating">
             <input type="radio" id="rating1" name="rating" value="1" required />
@@ -54,20 +54,58 @@
             <span aria-hidden="true">☆☆☆☆☆</span>
             <span class="visually-hidden">5 stars</span>
           </label>
+        </div> -->
+        <label class="label">Overall Rating</label>
+
+        <div class="rating-row">
+            <input type="radio" id="rating1" name="rating" value="1" required>
+            <label for="rating1">☆</label>
+
+            <input type="radio" id="rating2" name="rating" value="2" required>
+            <label for="rating2">☆☆</label>
+
+            <input type="radio" id="rating3" name="rating" value="3" required>
+            <label for="rating3">☆☆☆</label>
+
+            <input type="radio" id="rating4" name="rating" value="4" required>
+            <label for="rating4">☆☆☆☆</label>
+
+            <input type="radio" id="rating5" name="rating" value="5" required>
+            <label for="rating5">☆☆☆☆☆</label>
         </div>
+
 
         <!-- Date of Installation -->
         <label for="installDate" class="label">Date of Installation</label>
         <input id="installDate" name="installationDate" type="date" required />
 
         <!-- Useful Features (checkboxes) -->
-        <label class="label">Which features did you find useful in the product? <span class="muted">(Check all that apply)</span></label>
+        <!-- <label class="label">Which features did you find useful in the product? <span class="muted">(Check all that apply)</span></label>
         <div class="checkbox-grid">
           <label><input type="checkbox" id="featDurability" name="features" value="Durability"> Durability</label>
           <label><input type="checkbox" id="featEase" name="features" value="Ease of Use"> Ease of Use</label>
           <label><input type="checkbox" id="featPerformance" name="features" value="Performance"> Performance</label>
           <label><input type="checkbox" id="featDesign" name="features" value="Design"> Design</label>
+        </div> -->
+        <label class="label">
+            Which features did you find useful in the product?
+            <span class="muted">(Check all that apply)</span>
+        </label>
+
+        <div class="checkbox-grid">
+            <input type="checkbox" id="featDurability" name="features" value="Durability">
+            <label for="featDurability">Durability</label>
+
+            <input type="checkbox" id="featEase" name="features" value="Ease of Use">
+            <label for="featEase">Ease of Use</label>
+
+            <input type="checkbox" id="featPerformance" name="features" value="Performance">
+            <label for="featPerformance">Performance</label>
+
+            <input type="checkbox" id="featDesign" name="features" value="Design">
+            <label for="featDesign">Design</label>
         </div>
+
 
         <!-- Written Review -->
         <label for="writtenReview" class="label">Written Review <span class="muted">(Optional)</span></label>
