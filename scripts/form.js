@@ -8,6 +8,10 @@ const products = [
   { id: "p-05", name: "Madagascar EcoSpeaker" }
 ];
 
+// Footer year and last modified
+document.querySelector("#year").textContent = new Date().getFullYear();
+document.querySelector("#lastModified").textContent = document.lastModified || "Unknown";
+
 document.addEventListener("DOMContentLoaded", () => {
   // populate select
   const select = document.getElementById("productSelect");
