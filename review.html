@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Review Confirmation</title>
+  <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Thank you for your review</h1>
+  </header>
+
+  <main class="container">
+    <section class="card" id="confirmationCard">
+      <h2 id="confirmTitle">Review Submitted</h2>
+      <p id="counterText">You have submitted <strong id="count">0</strong> reviews from this browser.</p>
+
+      <dl id="summaryList">
+        <!-- summary fields populated by JS -->
+      </dl>
+
+      <p><a href="form.html">Submit another review</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>©2024 Rubia Magdelena Francesco • Madagascar</p>
+    <p>Last Modification: 02/26/2024 13:56:10</p>
+  </footer>
+
+  <script>
+    // increment localStorage counter and display submitted values
+    (function () {
+      // Increment counter
+      const key = 'reviewCount';
+      let count = parseInt(localStorage.getItem(key) || '0', 10);
+      count = count + 1;
+      localStorage.setItem(key, String(count));
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('count').textContent = count;
+
+        // Parse query string
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('product') || '';
+        const rating = params.get('rating') || '—';
+        const installationDate = params.get('installationDate') || '—';
+        const userName = params.get('userName') || 'Anonymous';
+        const reviewText = params.get('reviewText') || '';
+        // features may appear multiple times; getAll handles that
+        const features = params.getAll('features');
+
+        // If you used product IDs, map to product name (same mapping as form.js).
+        const productMap = {
+          "p-01":"Rubia Solar Light Model A",
+          "p-02":"Rubia Solar Light Model B",
+          "p-03":"Magdelena Smart Thermostat",
+          "p-04":"Francesco Water Filter",
+          "p-05":"Madagascar EcoSpeaker"
+        };
+        const productName = productMap[productId] || productId || 'Unknown product';
+
+        const dl = document.getElementById('summaryList');
+
+        function addItem(term, desc) {
+          const dt = document.createElement('dt');
+          dt.textContent = term;
+          dt.style.fontWeight = "700";
+          const dd = document.createElement('dd');
+          dd.textContent = desc;
+          dd.style.margin = "0 0 12px 0";
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+        }
+
+        addItem('Product', productName);
+        addItem('Overall Rating', rating + (rating !== '—' ? ' / 5' : ''));
+        addItem('Installation Date', installationDate);
+        addItem('Useful Features', features.length? features.join(', '): 'None selected');
+        addItem('Written Review', reviewText ? decodeURIComponent(reviewText) : 'No written review');
+        addItem('Reviewer Name', userName ? userName : 'Anonymous');
+      });
+    })();
+  </script>
+</body>
+</html>

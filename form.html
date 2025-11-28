@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A product review form created by Halia Khayat">
+  <meta name="author" content="Halia Yayra Khayat">
+  <title>Product Review Form</title>
+  <link rel="stylesheet" href="styles/form.css">
+  <script src="scripts/form.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Product Review</h1>
+  </header>
+
+  <main class="container">
+    <form id="reviewForm" method="get" action="review.html" novalidate>
+      <fieldset class="card">
+        <legend class="sr-only">Product review form</legend>
+
+        <!-- Product Name -->
+        <label for="productSelect" class="label">Product Name</label>
+        <select id="productSelect" name="product" required>
+          <option value="" disabled selected>Select a Product ...</option>
+          <!-- options populated by JS -->
+        </select>
+
+        <!-- Overall Rating -->
+        <label class="label">Overall Rating</label>
+        <div class="rating-row" role="radiogroup" aria-label="Overall rating">
+          <label class="rating">
+            <input type="radio" id="rating1" name="rating" value="1" required />
+            <span aria-hidden="true">☆</span>
+            <span class="visually-hidden">1 star</span>
+          </label>
+          <label class="rating">
+            <input type="radio" id="rating2" name="rating" value="2" />
+            <span aria-hidden="true">☆☆</span>
+            <span class="visually-hidden">2 stars</span>
+          </label>
+          <label class="rating">
+            <input type="radio" id="rating3" name="rating" value="3" />
+            <span aria-hidden="true">☆☆☆</span>
+            <span class="visually-hidden">3 stars</span>
+          </label>
+          <label class="rating">
+            <input type="radio" id="rating4" name="rating" value="4" />
+            <span aria-hidden="true">☆☆☆☆</span>
+            <span class="visually-hidden">4 stars</span>
+          </label>
+          <label class="rating">
+            <input type="radio" id="rating5" name="rating" value="5" />
+            <span aria-hidden="true">☆☆☆☆☆</span>
+            <span class="visually-hidden">5 stars</span>
+          </label>
+        </div>
+
+        <!-- Date of Installation -->
+        <label for="installDate" class="label">Date of Installation</label>
+        <input id="installDate" name="installationDate" type="date" required />
+
+        <!-- Useful Features (checkboxes) -->
+        <label class="label">Which features did you find useful in the product? <span class="muted">(Check all that apply)</span></label>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" id="featDurability" name="features" value="Durability"> Durability</label>
+          <label><input type="checkbox" id="featEase" name="features" value="Ease of Use"> Ease of Use</label>
+          <label><input type="checkbox" id="featPerformance" name="features" value="Performance"> Performance</label>
+          <label><input type="checkbox" id="featDesign" name="features" value="Design"> Design</label>
+        </div>
+
+        <!-- Written Review -->
+        <label for="writtenReview" class="label">Written Review <span class="muted">(Optional)</span></label>
+        <textarea id="writtenReview" name="reviewText" rows="7" placeholder="Write your review..."></textarea>
+
+        <!-- Your Name -->
+        <label for="userName" class="label">Your Name <span class="muted">(Optional)</span></label>
+        <input id="userName" name="userName" type="text" placeholder="Your name (optional)">
+
+        <!-- Submit -->
+        <input class="submit-btn" type="submit" value="Post Review">
+      </fieldset>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> 🌺 Halia Yayra Khayat — Accra</p>
+    <p>Last Modification: <span id="lastModified"></span></p>
+  </footer>
+
+</body>
+</html>

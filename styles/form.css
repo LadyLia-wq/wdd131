@@ -1,0 +1,122 @@
+:root{
+  --bg:#2b0a2b;
+  --accent:#bfaec0;
+  --card:#e6dee4;
+  --muted:#4f4f6b;
+  --text:#111;
+  --button-bg:#eee;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:linear-gradient(#fff,#fff);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* Header */
+.site-header{
+  background:var(--bg);
+  color:white;
+  padding:28px 12px;
+  text-align:center;
+}
+.site-header h1{margin:0;font-size:2rem;letter-spacing:0.5px}
+
+/* Main container */
+.container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+.card{
+  background:var(--accent);
+  padding:18px;
+  border-radius:8px;
+  width:100%;
+  max-width:720px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Labels and inputs */
+.label{
+  display:block;
+  font-weight:700;
+  margin:14px 0 8px;
+  font-size:1rem;
+}
+.muted{font-weight:400;color:var(--muted);font-style:italic;font-size:0.95rem}
+
+/* select, inputs, textarea */
+select, input[type="text"], input[type="date"], textarea{
+  width:100%;
+  padding:14px;
+  border:2px solid rgba(0,0,0,0.12);
+  border-radius:4px;
+  font-size:1rem;
+  background:white;
+}
+textarea{resize:vertical}
+
+/* rating row */
+.rating-row{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-top:6px;
+}
+.rating{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:1.1rem;
+}
+.rating input{display:block; margin-bottom:6px}
+
+/* checkboxes */
+.checkbox-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:6px;
+}
+.checkbox-grid label{display:flex;align-items:center;gap:8px;font-weight:600}
+
+/* submit */
+.submit-btn{
+  display:block;
+  width:100%;
+  margin-top:18px;
+  padding:18px;
+  font-size:1.35rem;
+  font-weight:700;
+  border-radius:6px;
+  border:2px solid rgba(0,0,0,0.12);
+  background:var(--button-bg);
+  cursor:pointer;
+}
+
+/* footer */
+.site-footer{
+  background:var(--bg);
+  color:white;
+  padding:18px 12px;
+  text-align:center;
+  font-size:0.95rem;
+}
+
+/* small helpers */
+.sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.visually-hidden{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Responsive */
+@media(min-width:768px){
+  .checkbox-grid{grid-template-columns:repeat(2,1fr)}
+  .rating-row{gap:28px}
+}
