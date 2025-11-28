@@ -1,11 +1,11 @@
 :root{
   --bg:#4a40db;
-  --accent:#adebf0;     
-  --panel:#d7f5f8;      
+  --accent:#adebf0;
+  --panel:#d7f5f8;
   --muted:#6c6cdf;
-  --text:#111;
+  --text:#111111;
   --button-bg:#efefef;
-  --focus:#2b6b9b;
+  --focus:rgba(43,106,155,1);
   --radius:8px;
 }
 
@@ -54,7 +54,7 @@ body{
   font-weight:700;
   margin:14px 0 8px;
   font-size:1rem;
-  color: #2a2030;
+  color:#2a2030;
 }
 .muted{font-weight:400;color:var(--muted);font-style:italic;font-size:0.95rem}
 
@@ -176,17 +176,15 @@ textarea{resize:vertical}
   accent-color: var(--bg); /* modern browsers will color the check mark */
 }
 
-/* the label sits in the second column (works because label follows each input) */
+/* single, consolidated rule for checkbox labels (duplicate removed) */
 .checkbox-grid label{
   display:block;
   font-weight:600;
   cursor:pointer;
   padding-left:6px;
   color:#221825;
+  line-height:1.2;
 }
-
-/* Make sure the label aligns nicely if it's long */
-.checkbox-grid label { line-height:1.2; }
 
 /* ---------- Submit button ---------- */
 .submit-btn{
@@ -217,6 +215,3 @@ textarea{resize:vertical}
 .visually-hidden{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 
 /* Responsive tweaks */
-@media(min-width:768px){
-  .rating-row{gap:28px}
-}
