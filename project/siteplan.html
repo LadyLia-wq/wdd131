@@ -4,172 +4,192 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Khalia Beauty Nails & Spa — Site Plan</title>
-  <meta name="description" content="This is a site plan to Khalia Beauty's website">
+
+  <meta name="description" content="Site plan for Khalia Beauty Nails & Spa: structure, colors, typography, wireframes, and testing checklist for a responsive three-page site.">
   <meta name="author" content="Halia Yayra Khayat">
 
-  <!-- Fonts (Google Fonts) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Local stylesheet (course expects styles/ folder) -->
+  <link rel="stylesheet" href="styles/siteplan.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="siteplan">
     <header>
-      <h1>Khalia Beauty Nails & Spa — Site Plan</h1>
+      <h1>Khalia Beauty Nails &amp; Spa — Site Plan</h1>
       <p class="lead">A compact site plan for the website project. This single-page plan outlines the site name, purpose, audience scenarios, color and typography choices, wireframes, and testing checklist.</p>
     </header>
 
-    <section id="site-name">
-      <h2>Site Name &amp; Logo</h2>
-      <p><strong>Site Name:</strong> <em>Khalia Beauty Nails &amp; Spa</em></p>
-      <p><strong>Short rationale:</strong> The name is the business owner's name and describes the service (nail care &amp; beauty). It is simple, brandable, and local-market friendly.</p>
-      <p><strong>Logo:</strong> placeholder — a simple wordmark with a small nail icon. (Final SVG logo will be added to /assets/images/logo.svg)</p>
-    </section>
+    <main>
+      <section id="site-name">
+        <h2>Site Name &amp; Logo</h2>
+        <p><strong>Site Name:</strong> <em>Khalia Beauty Nails &amp; Spa</em></p>
+        <p><strong>Short rationale:</strong> The name is the business owner's name and describes the service (nail care &amp; beauty). It is simple, brandable, and local-market friendly.</p>
+        <p><strong>Logo:</strong></p>
+        <figure>
+          <img src="images/khalia-logo.png" alt="Khalia Beauty official logo" class="logo" />
+          <figcaption>Place your logo at <code>images/khalia-logo.png</code>.</figcaption>
+        </figure>
+      </section>
 
-    <section id="site-purpose">
-      <h2>Site Purpose</h2>
-      <p>The website will act as a professional online presence for Khalia Beauty:</p>
-      <ul>
-        <li>Introduce the salon and staff, show services and pricing</li>
-        <li>Display a gallery of nail designs and recent work</li>
-        <li>Allow customers to send inquiries via a contact/booking form</li>
-        <li>Highlight promotions and collect newsletter signups (localStorage)</li>
-      </ul>
-    </section>
+      <section id="site-purpose">
+        <h2>Site Purpose</h2>
+        <p>The website will act as a professional online presence for Khalia Beauty:</p>
+        <ul>
+          <li>Introduce the salon and staff, show services and pricing</li>
+          <li>Display a gallery of nail designs and recent work</li>
+          <li>Allow customers to send inquiries via a contact/booking form</li>
+          <li>Highlight promotions and collect newsletter signups (localStorage)</li>
+        </ul>
+      </section>
 
-    <section id="scenarios">
-      <h2>User Scenarios</h2>
-      <ol>
-        <li><strong>Scenario A:</strong> A local customer wants to know which manicure options (regular, gel, acrylic) are available and their prices before calling. — They should find an easy-to-scan services page with prices and descriptions.</li>
-        <li><strong>Scenario B:</strong> A visitor wants to see recent work to decide whether the salon's style matches theirs. — They should view the gallery page with filters for "manicure", "pedicure", "bridal" and see large images with lazy loading.</li>
-        <li><strong>Scenario C:</strong> A returning customer wants to view store hours and contact details quickly on mobile. — The header/footer will include a persistent contact area and a mobile-first layout.</li>
-      </ol>
-    </section>
+      <section id="scenarios">
+        <h2>User Scenarios</h2>
+        <ol>
+          <li><strong>Scenario A:</strong> A local customer wants to know which manicure options (regular, gel, acrylic) are available and their prices before calling. — They should find an easy-to-scan services page with prices and descriptions.</li>
+          <li><strong>Scenario B:</strong> A visitor wants to see recent work to decide whether the salon's style matches theirs. — They should view the gallery page with filters for "manicure", "pedicure", "bridal" and see large images with lazy loading.</li>
+          <li><strong>Scenario C:</strong> A returning customer wants to view store hours and contact details quickly on mobile. — The header/footer will include a persistent contact area and a mobile-first layout.</li>
+        </ol>
+      </section>
 
-    <section id="color-schema">
-      <h2>Color Schema (applied on this plan)</h2>
-      <div class="swatches">
-        <div class="swatch">
-          <div class="sample" style="background:var(--accent-1)"></div>
-          <div><strong>#0f766e</strong></div>
-          <small>Use: primary accent (buttons, headings, brand mark)</small>
+      <section id="color-schema">
+        <h2>Color Schema (applied on this plan)</h2>
+
+        <div class="swatches" aria-hidden="true">
+          <div class="swatch">
+            <div class="sample sample-accent1" role="img" aria-label="Primary color sample"></div>
+            <div><strong>#0f766e</strong></div>
+            <small>Use: primary accent (buttons, headings, brand mark)</small>
+          </div>
+
+          <div class="swatch">
+            <div class="sample sample-accent2" role="img" aria-label="Secondary color sample"></div>
+            <div><strong>#f8cbd0</strong></div>
+            <small>Use: secondary accents, background chips, CTA hover</small>
+          </div>
+
+          <div class="swatch">
+            <div class="sample sample-neutral" role="img" aria-label="Neutral color sample"></div>
+            <div><strong>#ffffff</strong></div>
+            <small>Use: content backgrounds, cards</small>
+          </div>
         </div>
 
-        <div class="swatch">
-          <div class="sample" style="background:var(--accent-2)"></div>
-          <div><strong>#f8cbd0</strong></div>
-          <small>Use: secondary accents, background chips, CTA hover</small>
-        </div>
+        <p>Contrast notes: primary is dark enough for headings and buttons. We'll run Lighthouse and DevTools color contrast checks and adjust if needed.</p>
+      </section>
 
-        <div class="swatch">
-          <div class="sample" style="background:var(--neutral-1); border:1px solid #eee"></div>
-          <div><strong>#ffffff</strong></div>
-          <small>Use: content backgrounds, cards</small>
-        </div>
-      </div>
-      <p>Contrast notes: primary is dark enough for headings and buttons. We'll run Lighthouse and DevTools color contrast checks and adjust if needed.</p>
-    </section>
+      <section id="typography">
+        <h2>Typography</h2>
+        <p><strong>Fonts chosen (Google Fonts):</strong></p>
+        <ul>
+          <li><strong>Poppins</strong> — Headings and brand wordmark (weights 600,700). Clean, geometric, modern look.</li>
+          <li><strong>Open Sans</strong> — Body copy, form labels, and nav (weights 400,600). Good legibility on small screens.</li>
+        </ul>
 
-    <section id="typography">
-      <h2>Typography</h2>
-      <p><strong>Fonts chosen (Google Fonts):</strong></p>
-      <ul>
-        <li><strong>Poppins</strong> — Headings and brand wordmark (weights 600,700). Clean, geometric, modern look.</li>
-        <li><strong>Open Sans</strong> — Body copy, form labels, and nav (weights 400,600). Good legibility on small screens.</li>
-      </ul>
-      <p class="example-h">Heading example — "Spa &amp; Nail Services" (Poppins)</p>
-      <p class="example-body">Body example — "We offer manicures, pedicures, and gel services with a focus on hygiene and custom designs." (Open Sans)</p>
-    </section>
+        <p class="example-h">Heading example — "Spa &amp; Nail Services" (Poppins)</p>
+        <p class="example-body">Body example — "We offer manicures, pedicures, and gel services with a focus on hygiene and custom designs." (Open Sans)</p>
+      </section>
 
-    <section id="wireframe">
-      <h2>Wireframe / Layout Sketches</h2>
-      <p>Below are simple, annotated wireframe sketches — mobile and desktop views. These are conceptual and will guide HTML structure and responsive breakpoints.</p>
+      <section id="wireframe">
+        <h2>Wireframe / Layout Sketches</h2>
+        <p>Below are simple, annotated wireframe sketches — mobile and desktop views. These are conceptual and will guide HTML structure and responsive breakpoints.</p>
 
-      <div class="wireframes">
-        <!-- Mobile -->
-        <div class="wf">
-          <h3>Mobile (portrait) — 375px wide</h3>
-          <div class="preview-mobile">
-            <div class="navbar box">
-              <div style="display:flex;align-items:center;gap:8px">
-                <div style="width:36px;height:36px;border-radius:6px;background:var(--accent-2)"></div>
-                <div style="font-weight:600">Khalia Beauty</div>
+        <div class="wireframes">
+          <article class="wf" aria-labelledby="wf-mobile-title">
+            <h3 id="wf-mobile-title">Mobile (portrait) — 375px wide</h3>
+            <div class="preview-mobile" aria-hidden="true">
+              <div class="navbar box">
+                <div class="nav-sample">
+                  <div class="logo-chip"></div>
+                  <span class="brand-text">Khalia Beauty</span>
+                </div>
               </div>
+
+              <div class="box">Hero image (lazy load) — short welcome &amp; CTA: Book Now</div>
+              <div class="box">Quick info row — hours | phone | location</div>
+              <div class="box">Services preview (3 items) — link to services page</div>
+              <div class="box">Gallery preview (carousel)</div>
+              <div class="box">Footer: contact, social, small nav</div>
             </div>
-            <div class="box" style="height:120px;">Hero image (lazy load) — short welcome & CTA: Book Now</div>
-            <div class="box">Quick info row — hours | phone | location</div>
-            <div class="box">Services preview (3 items) — link to services page</div>
-            <div class="box">Gallery preview (carousel)</div>
-            <div class="box">Footer: contact, social, small nav</div>
-          </div>
+          </article>
+
+          <article class="wf" aria-labelledby="wf-desktop-title">
+            <h3 id="wf-desktop-title">Desktop (wide) — 1200px layout</h3>
+            <div class="preview-desktop" aria-hidden="true">
+              <div class="navbar box">
+                <nav class="nav-item-list" aria-hidden="true">
+                  <span class="nav-item">Home</span>
+                  <span class="nav-item">Services</span>
+                  <span class="nav-item">Gallery</span>
+                  <span class="nav-item">Contact</span>
+                </nav>
+              </div>
+
+              <div class="box" aria-hidden="true">
+                <div class="hero-left">Hero image and CTA</div>
+                <div class="hero-right">Booking summary / contact</div>
+              </div>
+
+              <div class="box">Services grid (4 columns on large screens)</div>
+              <div class="box">Gallery (masonry / grid) with filters</div>
+            </div>
+          </article>
         </div>
 
-        <!-- Desktop -->
-        <div class="wf">
-          <h3>Desktop (wide) — 1200px layout </h3>
-          <div class="preview-desktop">
-            <div class="navbar" style="margin-bottom:8px">
-              <div class="nav-item">Home</div>
-              <div class="nav-item">Services</div>
-              <div class="nav-item">Gallery</div>
-              <div class="nav-item">Contact</div>
-            </div>
-            <div class="box" style="display:flex;gap:12px">
-              <div style="flex:2;height:120px">Hero image and CTA</div>
-              <div style="flex:1;height:120px">Booking summary / contact</div>
-            </div>
-            <div class="box">Services grid (4 columns on large screens)</div>
-            <div class="box">Gallery (masonry / grid) with filters</div>
-          </div>
-        </div>
-      </div>
+        <p><strong>Notes on layout &amp; responsive behavior:</strong> mobile-first CSS, breakpoints at 640px and 1024px. Navigation collapses to a hamburger on small screens. Use CSS grid for services and responsive images with <code>srcset</code> + lazy loading.</p>
+      </section>
 
-      <p><strong>Notes on layout &amp; responsive behavior:</strong> mobile-first CSS, breakpoints at 640px and 1024px. Navigation collapses to a hamburger on small screens. Use CSS grid for services and responsive images with <code>srcset</code> + lazy loading.</p>
-    </section>
-
-    <section id="css-structure">
-      <h2>CSS &amp; Assets</h2>
-      <p>Planned file structure (examples):</p>
-      <pre style="background:#f8f9fb;padding:10px;border-radius:6px">/project/
+      <section id="css-structure">
+        <h2>CSS &amp; Assets</h2>
+        <p>Planned file structure (examples):</p>
+        <pre class="code-pre">/project/
   index.html
   services.html
   gallery.html
   contact.html
   siteplan.html  &lt;-- this document
-  /assets/
-    /css/main.css
-    /images/logo.svg
-    /images/gallery/*
-    /js/main.js
+  images/
+    khalia-logo.png
+    gallery/
+  styles/
+    siteplan.css
+  scripts/
+    main.js
 </pre>
-      <p>CSS approach: a small reset + utility classes. Keep stylesheet lean, remove unused rules. Use CSS variables for colors and spacing.</p>
-    </section>
+        <p>CSS approach: a small reset + utility classes. Keep stylesheet lean, remove unused rules. Use CSS variables for colors and spacing.</p>
+      </section>
 
-    <section id="javascript-features">
-      <h2>JavaScript Features (requirements mapping)</h2>
-      <ul>
-        <li>Multiple functions: <code>initGallery()</code>, <code>loadPromotions()</code>, <code>handleFormSubmit()</code></li>
-        <li>DOM interaction: select elements, update gallery, show/hide modal, form validation</li>
-        <li>Conditional branching: toggle UI based on localStorage (e.g., "seenPromo")</li>
-        <li>Objects &amp; arrays: gallery items stored as objects; use <code>map</code>, <code>filter</code></li>
-        <li>Template literals: used exclusively when building HTML strings for injection</li>
-        <li>localStorage: save newsletter subscription, remember user's preferred gallery filter</li>
-      </ul>
-    </section>
+      <section id="javascript-features">
+        <h2>JavaScript Features (requirements mapping)</h2>
+        <ul>
+          <li>Multiple functions: <code>initGallery()</code>, <code>loadPromotions()</code>, <code>handleFormSubmit()</code></li>
+          <li>DOM interaction: select elements, update gallery, show/hide modal, form validation</li>
+          <li>Conditional branching: toggle UI based on localStorage (e.g., "seenPromo")</li>
+          <li>Objects &amp; arrays: gallery items stored as objects; use <code>map</code>, <code>filter</code></li>
+          <li>Template literals: used exclusively when building HTML strings for injection</li>
+          <li>localStorage: save newsletter subscription, remember user's preferred gallery filter</li>
+        </ul>
+      </section>
 
-    <section id="testing">
-      <h2>Testing &amp; Validation Checklist</h2>
-      <ul class="checklist">
-        <li>HTML validation: all pages pass a standards-based validator (no structural errors)</li>
-        <li>CSS validation: no duplicate/unused rules; use DevTools CSS Overview</li>
-        <li>Accessibility: check color contrast, use semantic HTML (landmark elements), form labels</li>
-        <li>Performance: images optimized, lazy loading implemented, Lighthouse score > 80 mobile</li>
-        <li>JavaScript console: no runtime errors; functions tested in DevTools</li>
-        <li>SEO basics: meaningful title/meta descriptions, clean URLs, alt attributes for images</li>
-      </ul>
-    </section>
+      <section id="testing">
+        <h2>Testing &amp; Validation Checklist</h2>
+        <ul class="checklist">
+          <li>HTML validation: all pages pass a standards-based validator (no structural errors)</li>
+          <li>CSS validation: no duplicate/unused rules; use DevTools CSS Overview</li>
+          <li>Accessibility: check color contrast, use semantic HTML (landmark elements), form labels</li>
+          <li>Performance: images optimized, lazy loading implemented, Lighthouse score &gt; 80 mobile</li>
+          <li>JavaScript console: no runtime errors; functions tested in DevTools</li>
+          <li>SEO basics: meaningful title/meta descriptions, clean URLs, alt attributes for images</li>
+        </ul>
+      </section>
+    </main>
 
     <footer>
       <p>Prepared by: Khalia Beauty (project owner). Date: <strong>Nov 27, 2025</strong>.</p>
+      <p>Next steps: build HTML pages, create the repository (wdd131/project/khalia-beauty), and push to GitHub Pages. Include a references page for any images or copied text.</p>
     </footer>
   </div>
 </body>
