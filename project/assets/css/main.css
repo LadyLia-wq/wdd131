@@ -1,0 +1,58 @@
+:root{
+  --accent-1: #0f766e;
+  --accent-2: #f8cbd0;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --radius: 10px;
+  --container: 1100px;
+  --gap: 16px;
+  font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#fbfbfb;color:var(--text);line-height:1.45}
+
+/* Layout */
+.container{max-width:var(--container);margin:0 auto;padding:20px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{height:56px;width:auto;display:block}
+
+/* Nav */
+.main-nav .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:12px}
+.main-nav .nav-list a{text-decoration:none;color:var(--text);padding:8px;border-radius:6px}
+.main-nav .nav-list a:focus, .main-nav .nav-list a:hover{background:#f3f4f4}
+.nav-toggle{display:none;background:none;border:1px solid #e7e7e7;padding:6px 8px;border-radius:6px}
+
+/* Hero */
+.hero{background:linear-gradient(90deg,var(--accent-2)88%,#fff);padding:28px;border-radius:12px;margin:18px 0}
+.hero h1{margin:0 0 8px;font-family:'Poppins',sans-serif;color:var(--accent-1)}
+.lead{margin:0 0 12px;color:var(--muted)}
+
+/* Grids & cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--gap)}
+.services-list .card, .service-card{background:var(--bg);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(3,7,18,0.06)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.gallery-grid img{width:100%;height:auto;border-radius:8px;display:block}
+
+/* Forms */
+form{max-width:540px}
+.form-row{margin-bottom:12px;display:flex;flex-direction:column}
+input,select,textarea{padding:8px;border:1px solid #e6e6e9;border-radius:6px;font-size:1rem}
+label{font-weight:600;margin-bottom:6px}
+.btn{display:inline-block;background:var(--accent-1);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+.btn:focus,.btn:hover{opacity:0.95}
+
+/* Footer */
+.site-footer{margin-top:28px;padding:18px 0;color:var(--muted);border-top:1px solid #f1f1f1}
+
+/* Responsive nav */
+@media (max-width:800px){
+  .main-nav .nav-list{display:none;flex-direction:column;background:#fff;padding:10px;border-radius:8px;position:absolute;right:20px;top:70px;box-shadow:0 8px 30px rgba(3,7,18,0.08)}
+  .nav-toggle{display:inline-block}
+}
+
+/* small tweaks */
+.controls{margin:12px 0;display:flex;align-items:center;gap:8px}
