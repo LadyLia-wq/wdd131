@@ -1,11 +1,3 @@
-// main.js (module) - Khalia Beauty
-// This file intentionally meets the rubric requirements:
-// - multiple functions
-// - DOM interaction: select, modify, event listening
-// - conditional branching
-// - objects & arrays & array methods
-// - template literals exclusively for HTML output
-// - localStorage
 
 const services = [
   { id: 1, name: 'Classic Manicure', price: 20, type: 'manicure' },
@@ -16,10 +8,10 @@ const services = [
 ];
 
 const galleryItems = [
-  { id: 1, src: 'assets/images/gallery/1.jpg', alt: 'Pink nails', tag: 'manicure' },
-  { id: 2, src: 'assets/images/gallery/2.jpg', alt: 'Teal design', tag: 'manicure' },
-  { id: 3, src: 'assets/images/gallery/3.jpg', alt: 'Soft set', tag: 'bridal' },
-  { id: 4, src: 'assets/images/gallery/4.jpg', alt: 'Pedicure art', tag: 'pedicure' }
+  { id: 1, src: 'assets/images/gallery/image1.jpg', alt: 'Pink nails', tag: 'manicure' },
+  { id: 2, src: 'assets/images/gallery/image2.jpg', alt: 'Teal design', tag: 'manicure' },
+  { id: 3, src: 'assets/images/gallery/image3.jpg', alt: 'Soft set', tag: 'bridal' },
+  { id: 4, src: 'assets/images/gallery/image4.jpg', alt: 'Pedicure art', tag: 'pedicure' }
 ];
 
 // Short helper to find elements
